@@ -242,7 +242,7 @@ const NewHeroSection = () => {
             </div>
 
             {/* BUTTON */}
-            {/* <button
+            <button
               onClick={() =>
                 changeSlide(
                   (currentImage - 1 + heroImages.length) % heroImages.length,
@@ -256,7 +256,7 @@ const NewHeroSection = () => {
                 strokeWidth={1}
                 className="text-white hover:text-gray-400"
               />
-            </button> */}
+            </button>
           </div>
         </div>
         <div className="absolute top-[52%] sm:top-[56%] md:top-[48%] left-[7px] sm:left-[7px] lg:left-72 -translate-y-1/2">
