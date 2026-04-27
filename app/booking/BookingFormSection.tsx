@@ -27,6 +27,14 @@ const BookingFormSection = () => {
     message: "",
   });
 
+  const todayDate = (() => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  })();
+
   // ✅ 1. Improved Time Converter
   const convertTo24Hour = (time: string) => {
     // If the slot is "10:00 AM - 11:00 AM", take the first part
@@ -211,6 +219,7 @@ const BookingFormSection = () => {
                 <input
                   type="date"
                   required
+                  min={todayDate}
                   className={fieldClass}
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
