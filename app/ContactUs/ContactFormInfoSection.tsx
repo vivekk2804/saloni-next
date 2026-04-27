@@ -20,7 +20,7 @@ const ContactFormInfoSection = () => {
   const [loading, setLoading] = useState(true);
 
   const fieldClass =
-    "h-[50px] w-full border-0 bg-[var(--color-background)] my-3 px-3 text-[13px] text-[var(--color-foreground)] placeholder:text-[var(--color-foreground)] focus:bg-[#f8f8f8] focus:outline-none";
+    "h-[50px] w-full text-black border-0 bg-[var(--color-background)] my-3 px-3 text-[13px] text-[var(--color-foreground)] placeholder:text-[var(--color-foreground)] focus:bg-[#f8f8f8] focus:outline-none";
 
   // API CALL
   useEffect(() => {
@@ -64,36 +64,38 @@ const ContactFormInfoSection = () => {
               className="mx-auto"
               method="post"
               action="https://thewebmax.org/saloni/phpmailer/mail.php">
-              <div className="grid grid-cols-1 gap-x-[30px] mt-[-50px] sm:mt-0 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-x-[30px] mt-[-50px] sm:mt-0 md:grid-cols-2 text-black">
                 <input
                   name="username"
                   required
-                  className={fieldClass}
+                  className={`${fieldClass} placeholder:text-black text-black`}
                   placeholder="Name"
                 />
+
                 <input
                   name="email"
                   required
-                  className={fieldClass}
+                  className={`${fieldClass} placeholder:text-black text-black`}
                   placeholder="Email"
                 />
+
                 <input
                   name="phone"
                   required
-                  className={fieldClass}
+                  className={`${fieldClass} placeholder:text-black text-black`}
                   placeholder="Phone"
                 />
+
                 <input
                   name="subject"
                   required
-                  className={fieldClass}
+                  className={`${fieldClass} placeholder:text-black text-black`}
                   placeholder="Subject"
                 />
-
                 <div className="md:col-span-2">
                   <textarea
                     name="message"
-                    className="min-h-[120px] w-full border-0 bg-[var(--color-background)] px-3 py-3 text-[13px] text-[var(--color-foreground)]"
+                    className="min-h-[120px] w-full border-0 bg-[var(--color-background)] px-3 py-3 text-[13px] text-black placeholder:text-black"
                     placeholder="Message"
                   />
                 </div>
@@ -123,13 +125,15 @@ const ContactFormInfoSection = () => {
                   <div className="grid grid-cols-1 gap-x-[30px] space-y-5 sm:space-y-8 md:grid-cols-2 lg:grid-cols-4">
                     {/* PHONE */}
                     <div>
-                      <h4 className="mb-[10px] font-yeseva text-[22px] text-[#541f5c]">
+                      <h4 className="mb-[10px] font-yeseva text-[22px] text-black text-[#541f5c]">
                         Phone number
                       </h4>
 
                       {data.phone ? (
                         <p>
-                          <a href={`tel:${data.phone}`}>{data.phone}</a>
+                          <a className="text-black" href={`tel:${data.phone}`}>
+                            {data.phone}
+                          </a>
                         </p>
                       ) : (
                         <p>No phone available</p>
@@ -144,7 +148,11 @@ const ContactFormInfoSection = () => {
 
                       {data.email ? (
                         <p>
-                          <a href={`mailto:${data.email}`}>{data.email}</a>
+                          <a
+                            className="text-black"
+                            href={`mailto:${data.email}`}>
+                            {data.email}
+                          </a>
                         </p>
                       ) : (
                         <p>No email available</p>
@@ -153,12 +161,14 @@ const ContactFormInfoSection = () => {
 
                     {/* ADDRESS */}
                     <div>
-                      <h4 className="mb-[10px] font-yeseva text-[22px] text-[#541f5c]">
+                      <h4 className="mb-[10px]  font-yeseva text-[22px] text-[#541f5c]">
                         Address info
                       </h4>
 
                       {data.address ? (
-                        <p className="whitespace-pre-line">{data.address}</p>
+                        <p className="whitespace-pre-line text-black">
+                          {data.address}
+                        </p>
                       ) : (
                         <p>No address available</p>
                       )}
@@ -166,11 +176,11 @@ const ContactFormInfoSection = () => {
 
                     {/* HOURS (STATIC) */}
                     <div>
-                      <h4 className="mb-[10px] font-yeseva text-[22px] text-[#541f5c]">
+                      <h4 className="mb-[10px]  font-yeseva text-[22px] text-[#541f5c]">
                         Opening Hours
                       </h4>
 
-                      <ul>
+                      <ul className="text-black">
                         <li>Mon-Fri: 9 am - 6 pm</li>
                         <li>Saturday: 9 am - 4 pm</li>
                         <li>Sunday: Closed</li>

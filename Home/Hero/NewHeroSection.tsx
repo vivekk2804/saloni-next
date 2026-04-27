@@ -169,7 +169,7 @@ const NewHeroSection = () => {
         {socialLinks.map((item, index) => {
           const Icon = item.icon;
           return (
-            <div key={index} className="cursor-pointer">
+            <div key={index} className="cursor-pointer text-black">
               <Icon size={16} />
             </div>
           );
@@ -324,10 +324,11 @@ const NewHeroSection = () => {
       {/* SIDE ROTATED LINK */}
       <div className="hidden lg:block w-[30px] shrink-0 items-center justify-center lg:flex sm:flex-col">
         <Link
-          href="/HeroForm"
+          href="/booking"
           className="lg:mt-12 relative inline-flex origin-center rotate-90 items-center text-foreground justify-center whitespace-nowrap text-[15px] font-semibold uppercase leading-none tracking-[1.5px]">
-          <span className="overline underline-offset-4">Make</span> an appoint
-          <span className="underline underline-offset-4">ment</span>
+          <span className="overline text-black underline-offset-4">Make </span>
+          <span className="text-black ml-1"> an appoint</span>
+          <span className="underline underline-offset-4 text-black">ment</span>
         </Link>
       </div>
     </main>

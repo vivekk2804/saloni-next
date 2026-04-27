@@ -95,13 +95,13 @@ export default function PricingSection() {
                     <h3 className="text-[30px] font-yeseva text-[#541f5c]">
                       {item.name}
                     </h3>
-                    <p className="text-[var(--color-foreground)] mt-1 text-[15px]">
+                    <p className="text-[var(--color-foreground)] mt-1 text-[15px] text-black">
                       {item.description}
                     </p>
                   </div>
 
                   {/* PRICE */}
-                  <div className="text-[28px] font-yeseva text-[var(--color-foreground)] whitespace-nowrap">
+                  <div className="text-[28px] font-yeseva text-[var(--color-foreground)] whitespace-nowrap text-black">
                     ${item.price}
                   </div>
                 </div>
@@ -129,13 +129,13 @@ export default function PricingSection() {
                     <h3 className="text-[30px] font-yeseva text-[#541f5c]">
                       {item.name}
                     </h3>
-                    <p className="text-[var(--color-foreground)] mt-1 text-[15px]">
+                    <p className="text-[var(--color-foreground)] mt-1 text-[15px] text-black">
                       {item.description}
                     </p>
                   </div>
 
                   {/* PRICE */}
-                  <div className="text-[28px] font-yeseva text-[var(--color-foreground)] whitespace-nowrap">
+                  <div className="text-[28px] font-yeseva text-[var(--color-foreground)] whitespace-nowrap text-black">
                     ${item.price}
                   </div>
                 </div>

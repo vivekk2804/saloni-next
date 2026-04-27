@@ -93,18 +93,18 @@ const BlogPostPage = () => {
                   <div className="wt-post-info bg-white pt-[30px]">
                     <div className="wt-post-meta mb-[20px]">
                       <ul className="m-0 list-none p-0">
-                        <li className="post-date inline-block p-0 text-[14px] after:mx-[5px] after:text-[14px] after:text-black after:content-['|']">
+                        <li className="post-date inline-block p-0 text-[14px] text-black after:mx-[5px] after:text-[14px] after:text-black after:content-['|']">
                           <span>20 Jan 2025</span>
                         </li>
-                        <li className="post-user inline-block p-0 text-[14px] after:mx-[5px] after:text-[14px] after:text-black after:content-['|']">
-                          By{" "}
-                          <span className="site-text-primary font-semibold text-[#541f5c]">
+                        <li className="post-user inline-block p-0 text-[14px] text-black after:mx-[5px] after:text-[14px] after:text-black after:content-['|']">
+                          By
+                          <span className="site-text-primary ml-1 font-semibold text-[#541f5c]">
                             Sophia Varner
                           </span>
                         </li>
-                        <li className="post-comment inline-block p-0 text-[14px]">
-                          Comment{" "}
-                          <span className="site-text-primary font-semibold text-[#541f5c]">
+                        <li className="post-comment inline-block p-0 text-black text-[14px]">
+                          Comment
+                          <span className="site-text-primary ml-1 font-semibold text-[#541f5c]">
                             24
                           </span>
                         </li>
@@ -427,10 +427,10 @@ const BlogPostPage = () => {
                               </div>
                               <div className="wt-post-meta mb-[10px]">
                                 <ul className="m-0 list-none p-0">
-                                  <li className="post-author inline-block text-[12px] font-semibold after:mx-[5px] after:text-black after:content-['|']">
+                                  <li className="post-author text-black inline-block text-[12px] font-semibold after:mx-[5px] after:text-black after:content-['|']">
                                     {post.date}
                                   </li>
-                                  <li className="post-comment inline-block text-[12px] font-semibold">
+                                  <li className="post-comment text-black inline-block text-[12px] font-semibold">
                                     {post.comments} Comment
                                   </li>
                                 </ul>
@@ -507,7 +507,7 @@ const BlogPostPage = () => {
                           className="flex items-center justify-between border-b border-[#e1e1e1] py-[10px] text-[14px] leading-[20px]">
                           <Link
                             href="/Services"
-                            className="transition-colors hover:text-[#541f5c]">
+                            className="transition-colors text-black hover:text-[#541f5c]">
                             {item.label}
                           </Link>
                           <span className="badge bg-transparent text-[14px] font-semibold text-[#111111]">

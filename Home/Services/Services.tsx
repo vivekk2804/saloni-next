@@ -132,10 +132,10 @@ export default function ServicesSection() {
 
         {/* NAV BUTTONS */}
         <div className="flex justify-center gap-10 my-15 text-sm tracking-widest">
-          <button className="prev-btn cursor-pointer hover:text-[#541f5c] transition">
+          <button className="prev-btn cursor-pointer text-black hover:text-[#541f5c] transition">
             PREV
           </button>
-          <button className="next-btn cursor-pointer hover:text-[#541f5c] transition">
+          <button className="next-btn cursor-pointer text-black hover:text-[#541f5c] transition">
             NEXT
           </button>
         </div>

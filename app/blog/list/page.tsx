@@ -184,7 +184,7 @@ const BlogListPage = () => {
                         />
                       </Link>
 
-                      <span className="post-date absolute left-[20px] top-[20px] z-[1] bg-black px-[15px] py-[10px] text-center text-[12px] font-medium uppercase text-white">
+                      <span className="post-date absolute  left-[20px] top-[20px] z-[1] bg-black px-[15px] py-[10px] text-center text-[12px] font-medium uppercase text-white ">
                         {post.date}
                       </span>
                     </div>
@@ -192,12 +192,12 @@ const BlogListPage = () => {
                     <div className="wt-post-info bg-white px-[20px] pb-0 pt-[20px] text-center">
                       <div className="wt-post-meta mb-[20px]">
                         <ul className="m-0 list-none p-0">
-                          <li className="post-date inline-block p-0 text-[14px] after:mx-[5px] after:text-[14px] after:text-black after:content-['|']">
+                          <li className="post-date inline-block p-0 text-[14px] text-black after:mx-[5px] after:text-[14px] after:text-black after:content-['|']">
                             <span>{post.date}</span>
                           </li>
                           <li className="post-user inline-block p-0 text-[14px] after:mx-[5px] after:text-[14px] after:text-black after:content-['|']">
                             <Link href="/Blog">
-                              By{" "}
+                              <span className="text-black "> By </span>
                               <span className="site-text-primary font-semibold text-[#541f5c]">
                                 {post.author}
                               </span>
@@ -205,7 +205,7 @@ const BlogListPage = () => {
                           </li>
                           <li className="post-comment inline-block p-0 text-[14px]">
                             <Link href="/Blog">
-                              Comment{" "}
+                              <span className="text-black">Comment </span>
                               <span className="site-text-primary font-semibold text-[#541f5c]">
                                 {post.comments}
                               </span>
@@ -406,13 +406,13 @@ const BlogListPage = () => {
                       {CATEGORIES.map((item) => (
                         <li
                           key={item.label}
-                          className="flex items-center justify-between border-b border-[#e1e1e1] py-[10px] text-[14px] leading-[20px]">
+                          className="flex items-center justify-between border-b  border-[#e1e1e1] py-[10px] text-[14px] leading-[20px]">
                           <Link
                             href="/Services"
-                            className="transition-colors hover:text-[#541f5c]">
+                            className="transition-colors text-black hover:text-[#541f5c]">
                             {item.label}
                           </Link>
-                          <span className="badge bg-transparent text-[14px] font-semibold text-[#111111]">
+                          <span className="badge bg-transparent text-[14px] font-semibold text-black">
                             {item.count}
                           </span>
                         </li>
