@@ -1,18 +1,63 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const fieldClass =
   "h-[50px] w-full border-0 bg-[#fff] px-[10px] py-[12px] text-[14px] sm:text-[13px] leading-[20px] text-[#495057] outline-none placeholder:text-[#111111]";
 
 const Contactus = () => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+
+    setSubmitting(true);
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const payload = {
+        name: String(formData.get("username") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        phone: String(formData.get("phone") || "").trim(),
+        subject: String(formData.get("subject") || "").trim(),
+        message: String(formData.get("message") || "").trim(),
+      };
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/contact-us/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        throw new Error(result?.message || "Failed to submit contact form");
+      }
+
+      form.reset();
+      alert(result?.message || "Message sent successfully");
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Something went wrong";
+      alert(message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section className="w-full bg-[#fff6ef] px-4 py-[40px] sm:px-12 lg:px-8 lg:py-[82px] lg:mt-10">
       <div className="mx-auto max-w-[1140px]">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12">
           <div className="w-full lg:max-w-[540px]">
-            <form
-              method="post"
-              action="https://thewebmax.org/saloni/phpmailer/mail.php"
-              className="w-full">
+            <form onSubmit={handleSubmit} className="w-full">
               <div className="flex items-center gap-2">
                 <p className="font-caveat text-[22px] sm:text-[34px] leading-none text-[#111111]">
                   Have Questions?
@@ -71,8 +116,9 @@ const Contactus = () => {
 
               <button
                 type="submit"
+                disabled={submitting}
                 className="relative mt-6 inline-flex font-semibold items-center justify-center bg-[#080b11] h-[50px] sm:max-w-70 max-w-60 w-full px-[15px]  py-[20px] text-[14px] font-inherit leading-none tracking-[1px] text-white transition-colors duration-300 hover:bg-[#541f5c]">
-                Send us a message
+                {submitting ? "Sending..." : "Send us a message"}
               </button>
             </form>
           </div>

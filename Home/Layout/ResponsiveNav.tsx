@@ -98,7 +98,11 @@ const ResponsiveNav = () => {
           </p>
 
           <button onClick={() => setOpen(!open)}>
-            {open ? <X size={28} /> : <Menu size={28} className="h-[41px]" />}
+            {open ? (
+              <X size={28} />
+            ) : (
+              <Menu size={28} className="h-[41px] text-black" />
+            )}
           </button>
         </div>
       </div>

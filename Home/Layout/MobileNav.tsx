@@ -19,7 +19,7 @@ const MobileNav = ({
 }: MobileNavProps) => {
   return (
     <div
-      className={`fixed top-0 left-0 h-screen w-[250px] bg-white transform transition-transform duration-500 z-50 ${
+      className={`fixed top-0 left-0 h-screen w-[250px] text-black bg-white transform transition-transform duration-500 z-50 ${
         open ? "translate-x-0" : "-translate-x-full"
       }`}>
       <div className="flex flex-col">
@@ -38,7 +38,7 @@ const MobileNav = ({
                   <span>{item.title}</span>
 
                   <ChevronRight
-                    className={`transition-transform duration-300 ${
+                    className={`transition-transform duration-300  ${
                       mobileDropdown === item.key ? "rotate-90" : ""
                     }`}
                   />
@@ -51,7 +51,7 @@ const MobileNav = ({
                       ? item.height || "max-h-[250px]"
                       : "max-h-0"
                   }`}>
-                  <div className="bg-gray-50">
+                  <div className="bg-gray-50 text-black">
                     {item.dropdown.map((subItem, i) => (
                       <Link
                         key={i}
@@ -72,7 +72,7 @@ const MobileNav = ({
               <Link
                 href={item.href || "#"}
                 onClick={() => setOpen(false)} // 🔥 close menu
-                className="block px-4 py-3 border-b border-gray-100 text-sm hover:bg-gray-100 transition">
+                className="block px-4 py-3 border-b text-black border-gray-100 text-sm hover:bg-gray-100 transition">
                 {item.title}
               </Link>
             )}
