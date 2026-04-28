@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Yeseva_One } from "next/font/google";
 import { usePathname } from "next/navigation";
+import { useContactInfo } from "@/hooks/useContactInfo";
 
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DekstopNav";
@@ -18,6 +19,8 @@ const ResponsiveNav = () => {
   const [open, setOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { data } = useContactInfo();
+  const contactNumber = data.phone || "+41 43 542 65 91";
 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -86,7 +89,7 @@ const ResponsiveNav = () => {
         <div className="hidden lg:block">
           <p
             className={`${yeseva.className} text-[#541f5c] text-[26px] lg:mr-3`}>
-            +41 43 542 65 91
+            {contactNumber}
           </p>
         </div>
 
@@ -94,7 +97,7 @@ const ResponsiveNav = () => {
         <div className="flex items-center gap-4 lg:hidden">
           <p
             className={`${yeseva.className} text-[#541f5c] text-[14px] sm:text-[26px] sm:ml-[-2px]`}>
-            +41 43 542 65 91
+            {contactNumber}
           </p>
 
           <button onClick={() => setOpen(!open)}>

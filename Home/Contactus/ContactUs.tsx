@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { submitContactUs } from "@/services/contactApi";
 
 const fieldClass =
   "h-[50px] w-full border-0 bg-[#fff] px-[10px] py-[12px] text-[14px] sm:text-[13px] leading-[20px] text-[#495057] outline-none placeholder:text-[#111111]";
@@ -27,22 +28,10 @@ const Contactus = () => {
         message: String(formData.get("message") || "").trim(),
       };
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/contact-us/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await res.json().catch(() => null);
-
-      if (!res.ok) {
-        throw new Error(result?.message || "Failed to submit contact form");
-      }
+      const result = await submitContactUs(payload);
 
       form.reset();
-      alert(result?.message || "Message sent successfully");
+      alert(result.message || "Message sent successfully");
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Something went wrong";

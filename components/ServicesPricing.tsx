@@ -105,7 +105,7 @@ const ServicesPricing = ({ className }: any) => {
                           <div className="pricingtable-footer mt-[-1px] px-[20px] pb-[32px] pt-[20px]">
                             <div className="mt-[32px]">
                               <Link
-                                href="/HeroForm"
+                                href="/booking"
                                 className={`site-btn-effect inline-flex min-w-[154px] items-center justify-center 
               px-[40px] py-[15px] text-[14px] font-medium tracking-[1px] 
               text-transparent overflow-hidden

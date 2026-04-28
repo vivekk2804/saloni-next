@@ -6,9 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { useContactInfo } from "@/hooks/useContactInfo";
 
 export default function Footer() {
   const [isMounted, setIsMounted] = useState(false);
+  const { data, loading, error } = useContactInfo();
 
   useEffect(() => {
     setIsMounted(true);
@@ -17,6 +19,10 @@ export default function Footer() {
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const currentYear = new Date().getFullYear();
+
+  // console.log("currentYear", currentYear);
 
   return (
     <footer className="bg-[#171717] text-white text-left h-[375px]">
@@ -41,7 +47,7 @@ export default function Footer() {
                 enim ad minim veniam.eiusmod tempo.
               </p>
 
-              <div className="flex w-full lg:max-w-[520px] bg-[#111]">
+              {/* <div className="flex w-full lg:max-w-[520px] bg-[#111]">
                 <input
                   type="text"
                   placeholder="Enter your email"
@@ -50,7 +56,7 @@ export default function Footer() {
                 <button className="h-[50px] px-7 bg-[#dfba9f] text-black text-[14px] font-medium hover:bg-[#541f5c] hover:text-[#fff] transition">
                   Subscribe
                 </button>
-              </div>
+              </div> */}
             </div>
 
             {/* BOTTOM ROW (Tablet = 2 cols, Desktop = 6+3+3 handled by lg) */}
@@ -103,17 +109,17 @@ export default function Footer() {
                 <ul className="lg:space-y-9 space-y-6 mb-10">
                   <li className="flex gap-3 text-[14px] text-white">
                     <FaLocationDot className="text-[#dfba9f] w-4 h-4 mt-[4px]" />
-                    <span>San Francisco City Hall, San Francisco, CA</span>
+                    <span>{data.address}</span>
                   </li>
 
-                  <li className="flex gap-3 text-[14px] text-white">
-                    <FaEnvelope className="text-[#dfba9f] w-4 h-4 mt-[3px]" />
-                    <span>contact123@gmail.com</span>
+                  <li className="flex gap-3  text-[12px] text-white">
+                    <FaEnvelope className="text-[#dfba9f] w-4 h-4 mt[3px]" />
+                    <span>{data.email}</span>
                   </li>
 
                   <li className="flex gap-3 text-[14px] text-white">
                     <FaPhoneAlt className="text-[#dfba9f] w-4 h-4 mt-[3px]" />
-                    <span>(654) 321-7654</span>
+                    <span>{data.phone}</span>
                   </li>
                 </ul>
               </div>
@@ -125,13 +131,15 @@ export default function Footer() {
       {/* BOTTOM */}
       <div className=" bg-[#111111]  mt-0 lg:mt-5 py-5 sm:py-5 lg:py-3">
         <div className="w-full max-w-[1140px] pt-3 mx-auto px-5 sm:px-10  flex flex-col lg:flex-row lg:justify-between lg:items-center">
-          <p className="text-[14px] text-white">Copyright © 2025 Thewebmax</p>
+          <p className="text-[14px] text-white">
+            Copyright © {currentYear} Thewebmax
+          </p>
 
           <div className="flex gap-2 lg:gap-3 mt-0 lg:mt-3 md:mt-0 text-[13px] lg:text-[14px] text-[#d6b08c]">
-            <Link href="/AboutUs" className="hover:text-white">
+            {/* <Link href="/AboutUs" className="hover:text-white">
               Terms & Condition
-            </Link>
-            <span>/</span>
+            </Link> */}
+            {/* <span>/</span> */}
             <Link href="/faq" className="hover:text-white">
               Privacy Policy
             </Link>
